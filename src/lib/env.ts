@@ -1,6 +1,10 @@
 export function getPublicAppUrl(): string {
-  const fromEnv = import.meta.env.VITE_PUBLIC_APP_URL;
+  if (typeof window !== "undefined" && window.location?.origin) {
+    return window.location.origin.replace(/\/$/, "");
+  }
+
+  const fromEnv = import.meta.env.VITE_PUBLIC_APP_URL?.trim();
   if (fromEnv) return fromEnv.replace(/\/$/, "");
-  if (typeof window !== "undefined") return window.location.origin;
+
   return "";
 }

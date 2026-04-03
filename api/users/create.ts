@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { resolveAdminUsersEnv, runCreateUser } from "../../server/admin-users-handlers";
+import { resolveAdminUsersEnv, runCreateUser } from "../../server/admin-users-handlers.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
