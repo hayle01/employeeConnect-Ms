@@ -58,6 +58,12 @@ export interface PublicEmployeePayload {
   name: string;
   title_en: string;
   title_local: string;
+  department: string;
+  national_id: string;
+  address: string;
+  district: string;
+  issue_date: string;
+  expire_date: string;
   mobile: string;
   email: string | null;
   profile_image_url: string | null;

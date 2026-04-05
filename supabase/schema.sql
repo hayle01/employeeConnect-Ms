@@ -124,10 +124,13 @@ begin
     e.name,
     e.title_en,
     e.title_local,
-    e.mobile,
-    e.email,
-    e.profile_image_url,
-    e.expire_date
+    e.department,
+    e.national_id,
+    e.address,
+    e.district,
+    e.issue_date,
+    e.expire_date,
+    e.profile_image_url
   into r
   from public.employees e
   where e.public_slug = p_slug
@@ -147,8 +150,12 @@ begin
     'name', r.name,
     'title_en', r.title_en,
     'title_local', r.title_local,
-    'mobile', r.mobile,
-    'email', r.email,
+    'department', r.department,
+    'national_id', r.national_id,
+    'address', r.address,
+    'district', r.district,
+    'issue_date', r.issue_date,
+    'expire_date', r.expire_date,
     'profile_image_url', r.profile_image_url,
     'status', st
   );
