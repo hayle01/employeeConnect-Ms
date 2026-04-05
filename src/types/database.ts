@@ -56,12 +56,10 @@ export interface EmployeeHistory {
 
 export interface PublicEmployeePayload {
   name: string;
-  emp_no: string;
   title_en: string;
   title_local: string;
-  department: string;
-  district: string;
+  mobile: string;
+  email: string | null;
+  profile_image_url: string | null;
   status: "Active" | "Expired";
-  issue_date: string;
-  expire_date: string;
 }

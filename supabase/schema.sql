@@ -1,4 +1,5 @@
--- EmployeeConnect — run in Supabase SQL editor
+
+
 -- Extensions
 create extension if not exists "pgcrypto";
 
@@ -119,7 +120,15 @@ declare
   r record;
   st text;
 begin
-  select e.* into r
+  select
+    e.name,
+    e.title_en,
+    e.title_local,
+    e.mobile,
+    e.email,
+    e.profile_image_url,
+    e.expire_date
+  into r
   from public.employees e
   where e.public_slug = p_slug
   limit 1;
@@ -136,14 +145,12 @@ begin
 
   return jsonb_build_object(
     'name', r.name,
-    'emp_no', r.emp_no,
     'title_en', r.title_en,
     'title_local', r.title_local,
-    'department', r.department,
-    'district', r.district,
-    'status', st,
-    'issue_date', r.issue_date,
-    'expire_date', r.expire_date
+    'mobile', r.mobile,
+    'email', r.email,
+    'profile_image_url', r.profile_image_url,
+    'status', st
   );
 end;
 $$;
